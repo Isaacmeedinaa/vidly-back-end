@@ -1,0 +1,7 @@
+const adminAuthorization = (req, res, next) => {
+  if (!req.user.isAdmin)
+    return res.status(403).send("Access denied. You are not an admin.");
+  next();
+};
+
+module.exports = adminAuthorization;
